@@ -1,0 +1,216 @@
+import type { Locale } from "./content";
+
+// Home-page copy. Anything in [brackets] is a placeholder for an approved figure.
+const en = {
+  hero: {
+    eyebrow: "Bait Al Mal Al Khaleeji | Asset Management",
+    title: "Your partner in growing wealth",
+    body: "Shariah-compliant funds and portfolios, managed under the supervision of the Capital Market Authority.",
+    primary: "Explore funds",
+    secondary: "Open account",
+  },
+  stats: [
+    { value: "[SAR __ m]", label: "Assets under management" },
+    { value: "[__]", label: "Funds managed" },
+    { value: "[____]", label: "Licensed since" },
+  ],
+  statsAsOf: "Figures as of [DATE]",
+  solutions: {
+    title: "Investment Solutions",
+    tabs: [
+      { key: "funds", label: "Mutual Funds", sub: "Public funds across money market, Saudi equities, GCC equities and IPOs.", cta: "Explore mutual funds", href: "/funds" },
+      { key: "re", label: "Real Estate", sub: "Funds investing in income-generating property across the Kingdom.", cta: "Explore real estate funds", href: "/funds?type=real-estate" },
+      { key: "pm", label: "Portfolio Management", sub: "Discretionary portfolios built around your goals and risk profile.", cta: "Explore portfolio management", href: "/services/portfolio-management" },
+    ],
+  },
+  funds: {
+    title: "Choose your Fund",
+    sub: "Latest unit prices, published after each valuation day.",
+    labels: { price: "Unit price", change: "Change", date: "Valuation date", type: "Type", risk: "Risk level", currency: "Currency" },
+    shariah: "Shariah compliant",
+    learn: "Learn More",
+    all: "Explore All Funds",
+    prev: "Previous fund",
+    next: "Next fund",
+  },
+  disclosures: {
+    title: "Transparent. Regulated. Accessible.",
+    sub: "Everything the CMA requires us to publish, in one place.",
+    items: [
+      { key: "fs", label: "Financial statements", body: "Audited annual and reviewed interim financial statements of Bait Al Mal Al Khaleeji.", meta: "Latest: [YEAR]" },
+      { key: "fund", label: "Fund reports", body: "Quarterly fund statements, fact sheets and annual reports for every public fund.", meta: "Latest: [QUARTER]" },
+      { key: "board", label: "Board report", body: "The annual report of the Board of Directors, including governance and committee activity.", meta: "Latest: [YEAR]" },
+      { key: "p3", label: "Pillar 3", body: "Capital adequacy and risk-management disclosures under the CMA prudential rules.", meta: "Latest: [YEAR]" },
+      { key: "ann", label: "Announcements", body: "Material announcements about the company and its funds.", meta: "Latest: [DATE]" },
+    ],
+    cta: "Open the library",
+  },
+  account: {
+    title: "Start investing with BMK",
+    tabs: [
+      { key: "ind", label: "Individuals", cards: ["Verify your identity with Nafath", "Complete your investor profile online", "Invest from [SAR ____]"], primary: "Open Account" },
+      { key: "corp", label: "Corporates", cards: ["Commercial registration and authorised signatories", "Company KYC and investor profile", "A dedicated relationship manager"], primary: "Contact Us" },
+      { key: "nr", label: "Non-residents", cards: ["Eligible GCC and foreign investors", "Passport and residency documents", "Guided onboarding with our team"], primary: "Contact Us" },
+    ],
+    learn: "Learn More",
+  },
+  news: {
+    title: "Latest News and Updates",
+    items: [
+      { date: "[DATE]", title: "[Financial results headline]", body: "[One-line summary of the announcement.]" },
+      { date: "[DATE]", title: "[Fund announcement headline]", body: "[One-line summary of the announcement.]" },
+      { date: "[DATE]", title: "[Company news headline]", body: "[One-line summary of the news item.]" },
+    ],
+    all: "Explore all news",
+    disclosures: "View disclosures",
+  },
+  contact: {
+    title: "Reach out to Us",
+    complaintsTitle: "Complaints",
+    complaintsBody: "If you are not satisfied with our response, you can escalate your complaint by email, quoting your complaint number.",
+    complaintsEmail: "[complaints@bmk.com.sa]",
+    cmaBody: "If the complaint is not resolved within [__] working days, you may refer it to the Capital Market Authority.",
+    cmaLink: "CMA complaints portal",
+    submitComplaint: "Submit a Complaint",
+    awareness: "Investor Awareness",
+    callTitle: "Call us",
+    phone: "[800-___-____]",
+    hoursTitle: "Working hours",
+    hours: "Sunday – Thursday",
+    hoursTime: "[9:00 AM – 5:00 PM]",
+    form: {
+      interest: "I am interested in",
+      interests: ["Mutual funds", "Real estate funds", "Portfolio management", "Opening an account", "Other"],
+      first: "First name",
+      last: "Last name",
+      email: "Email address",
+      phone: "Mobile number",
+      message: "Message",
+      consent: "I agree to the processing of my data under the Privacy Policy (PDPL).",
+      submit: "Submit",
+    },
+  },
+  footer: {
+    cols: [
+      { title: "Invest", links: [["Mutual funds", "/funds"], ["Real estate funds", "/funds?type=real-estate"], ["Portfolio management", "/services/portfolio-management"], ["Open account", "/open-account"]] },
+      { title: "Company", links: [["About BMK", "/about"], ["Board of Directors", "/about/leadership"], ["Executive management", "/about/leadership#executives"], ["Shariah board", "/about/governance#shariah"], ["Careers", "/careers"]] },
+      { title: "Investors", links: [["Disclosures", "/disclosures"], ["Investor awareness", "/investor-awareness"], ["Complaints", "/investor-awareness#complaints"], ["Media", "/media"]] },
+    ],
+    service: "Customer Service",
+    serviceTabs: ["Phone", "Complaints", "Email"],
+    serviceValues: ["Call [800-___-____]", "[complaints@bmk.com.sa]", "[info@bmk.com.sa]"],
+    legal: "Bait Al Mal Al Khaleeji, a [closed joint stock company], licensed by the Capital Market Authority under licence no. [__-___]. Commercial registration no. [__________]. Paid-up capital SAR [___,___,___]. Head office: [address], Kingdom of Saudi Arabia.",
+    risk: "Investing in funds carries risk. The value of units and the income from them can fall as well as rise, and past performance does not guarantee future results.",
+    rights: "© 2026 Bait Al Mal Al Khaleeji. All rights reserved.",
+    bottom: [["Privacy Policy", "/privacy"], ["Terms and Conditions", "/terms"], ["Cookies", "/cookies"], ["AML Policy", "/aml"]],
+  },
+};
+
+export type HomeDict = typeof en;
+
+const ar: HomeDict = {
+  hero: {
+    eyebrow: "بيت المال الخليجي | إدارة الأصول",
+    title: "شريكك في تنمية الثروة",
+    body: "صناديق ومحافظ متوافقة مع الشريعة، تُدار تحت إشراف هيئة السوق المالية.",
+    primary: "استعرض الصناديق",
+    secondary: "افتح حساباً",
+  },
+  stats: [
+    { value: "[__ مليون ريال]", label: "الأصول المدارة" },
+    { value: "[__]", label: "الصناديق المدارة" },
+    { value: "[____]", label: "مرخصة منذ" },
+  ],
+  statsAsOf: "الأرقام كما في [التاريخ]",
+  solutions: {
+    title: "الحلول الاستثمارية",
+    tabs: [
+      { key: "funds", label: "الصناديق الاستثمارية", sub: "صناديق عامة في أسواق النقد والأسهم السعودية والخليجية والطروحات الأولية.", cta: "استعرض الصناديق الاستثمارية", href: "/funds" },
+      { key: "re", label: "الصناديق العقارية", sub: "صناديق تستثمر في عقارات مدرة للدخل داخل المملكة.", cta: "استعرض الصناديق العقارية", href: "/funds?type=real-estate" },
+      { key: "pm", label: "إدارة المحافظ", sub: "محافظ اختيارية تُبنى حول أهدافك ومستوى المخاطر المناسب لك.", cta: "اعرف المزيد عن إدارة المحافظ", href: "/services/portfolio-management" },
+    ],
+  },
+  funds: {
+    title: "اختر صندوقك",
+    sub: "آخر أسعار الوحدات، تُنشر بعد كل يوم تقويم.",
+    labels: { price: "سعر الوحدة", change: "التغير", date: "تاريخ التقويم", type: "النوع", risk: "مستوى المخاطر", currency: "العملة" },
+    shariah: "متوافق مع الشريعة",
+    learn: "اعرف المزيد",
+    all: "استعرض جميع الصناديق",
+    prev: "الصندوق السابق",
+    next: "الصندوق التالي",
+  },
+  disclosures: {
+    title: "شفافية. التزام. وضوح.",
+    sub: "كل ما تتطلب هيئة السوق المالية نشره، في مكان واحد.",
+    items: [
+      { key: "fs", label: "القوائم المالية", body: "القوائم المالية السنوية المدققة والأولية المراجعة لشركة بيت المال الخليجي.", meta: "الأحدث: [السنة]" },
+      { key: "fund", label: "تقارير الصناديق", body: "البيانات الربع سنوية وصحائف الحقائق والتقارير السنوية لكل صندوق عام.", meta: "الأحدث: [الربع]" },
+      { key: "board", label: "تقرير مجلس الإدارة", body: "التقرير السنوي لمجلس الإدارة، بما في ذلك الحوكمة وأعمال اللجان.", meta: "الأحدث: [السنة]" },
+      { key: "p3", label: "الركيزة الثالثة", body: "إفصاحات كفاية رأس المال وإدارة المخاطر وفق قواعد الكفاية المالية.", meta: "الأحدث: [السنة]" },
+      { key: "ann", label: "الإعلانات", body: "الإعلانات الجوهرية المتعلقة بالشركة وصناديقها.", meta: "الأحدث: [التاريخ]" },
+    ],
+    cta: "افتح المكتبة",
+  },
+  account: {
+    title: "ابدأ الاستثمار مع بيت المال الخليجي",
+    tabs: [
+      { key: "ind", label: "الأفراد", cards: ["وثّق هويتك عبر نفاذ", "أكمل ملفك الاستثماري إلكترونياً", "استثمر ابتداءً من [____ ريال]"], primary: "افتح حساباً" },
+      { key: "corp", label: "الشركات", cards: ["السجل التجاري والمفوضون بالتوقيع", "اعرف عميلك للشركات والملف الاستثماري", "مدير علاقة مخصص"], primary: "تواصل معنا" },
+      { key: "nr", label: "غير المقيمين", cards: ["المستثمرون الخليجيون والأجانب المؤهلون", "جواز السفر ووثائق الإقامة", "تسجيل بمساعدة فريقنا"], primary: "تواصل معنا" },
+    ],
+    learn: "اعرف المزيد",
+  },
+  news: {
+    title: "آخر الأخبار والمستجدات",
+    items: [
+      { date: "[التاريخ]", title: "[عنوان النتائج المالية]", body: "[ملخص الإعلان في سطر واحد.]" },
+      { date: "[التاريخ]", title: "[عنوان إعلان الصندوق]", body: "[ملخص الإعلان في سطر واحد.]" },
+      { date: "[التاريخ]", title: "[عنوان خبر الشركة]", body: "[ملخص الخبر في سطر واحد.]" },
+    ],
+    all: "جميع الأخبار",
+    disclosures: "عرض الإفصاحات",
+  },
+  contact: {
+    title: "تواصل معنا",
+    complaintsTitle: "الشكاوى",
+    complaintsBody: "إذا لم تكن راضياً عن الرد، يمكنك تصعيد الشكوى عبر البريد الإلكتروني مع ذكر رقم الشكوى.",
+    complaintsEmail: "[complaints@bmk.com.sa]",
+    cmaBody: "إذا لم تُحل الشكوى خلال [__] يوم عمل، يمكنك إحالتها إلى هيئة السوق المالية.",
+    cmaLink: "بوابة شكاوى الهيئة",
+    submitComplaint: "تقديم شكوى",
+    awareness: "توعية المستثمر",
+    callTitle: "اتصل بنا",
+    phone: "[800-___-____]",
+    hoursTitle: "ساعات العمل",
+    hours: "الأحد – الخميس",
+    hoursTime: "[9:00 ص – 5:00 م]",
+    form: {
+      interest: "أرغب في",
+      interests: ["الصناديق الاستثمارية", "الصناديق العقارية", "إدارة المحافظ", "فتح حساب", "أخرى"],
+      first: "الاسم الأول",
+      last: "اسم العائلة",
+      email: "البريد الإلكتروني",
+      phone: "رقم الجوال",
+      message: "الرسالة",
+      consent: "أوافق على معالجة بياناتي وفق سياسة الخصوصية (نظام حماية البيانات الشخصية).",
+      submit: "إرسال",
+    },
+  },
+  footer: {
+    cols: [
+      { title: "استثمر", links: [["الصناديق الاستثمارية", "/funds"], ["الصناديق العقارية", "/funds?type=real-estate"], ["إدارة المحافظ", "/services/portfolio-management"], ["افتح حساباً", "/open-account"]] },
+      { title: "الشركة", links: [["عن الشركة", "/about"], ["مجلس الإدارة", "/about/leadership"], ["الإدارة التنفيذية", "/about/leadership#executives"], ["الهيئة الشرعية", "/about/governance#shariah"], ["الوظائف", "/careers"]] },
+      { title: "المستثمرون", links: [["الإفصاحات", "/disclosures"], ["توعية المستثمر", "/investor-awareness"], ["الشكاوى", "/investor-awareness#complaints"], ["المركز الإعلامي", "/media"]] },
+    ],
+    service: "خدمة العملاء",
+    serviceTabs: ["الهاتف", "الشكاوى", "البريد"],
+    serviceValues: ["اتصل على [800-___-____]", "[complaints@bmk.com.sa]", "[info@bmk.com.sa]"],
+    legal: "شركة بيت المال الخليجي، [شركة مساهمة مقفلة]، مرخصة من هيئة السوق المالية بترخيص رقم [__-___]. سجل تجاري رقم [__________]. رأس المال المدفوع [___,___,___] ريال. المركز الرئيسي: [العنوان]، المملكة العربية السعودية.",
+    risk: "ينطوي الاستثمار في الصناديق على مخاطر، وقد تنخفض قيمة الوحدات والدخل منها أو ترتفع، والأداء السابق لا يضمن النتائج المستقبلية.",
+    rights: "© 2026 بيت المال الخليجي. جميع الحقوق محفوظة.",
+    bottom: [["سياسة الخصوصية", "/privacy"], ["الشروط والأحكام", "/terms"], ["ملفات تعريف الارتباط", "/cookies"], ["سياسة مكافحة غسل الأموال", "/aml"]],
+  },
+};
+
+export const homeDicts: Record<Locale, HomeDict> = { en, ar };

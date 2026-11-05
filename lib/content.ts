@@ -10,16 +10,17 @@ export type Fund = {
   shariah: boolean;
   currency: "SAR";
   nav: string;
+  risk: string;
   change: string;
   asOf: string;
 };
 
 export const funds: Fund[] = [
-  { slug: "murabaha", name: { en: "BMK Murabaha Money Market Fund", ar: "صندوق بيت المال الخليجي للمرابحة وأسواق النقد" }, type: "money-market", shariah: true, currency: "SAR", nav: "[NAV]", change: "[%]", asOf: "[DATE]" },
-  { slug: "saudi-equity", name: { en: "BMK Saudi Equity Fund", ar: "صندوق بيت المال الخليجي للأسهم السعودية" }, type: "equity", shariah: true, currency: "SAR", nav: "[NAV]", change: "[%]", asOf: "[DATE]" },
-  { slug: "freestyle", name: { en: "BMK Saudi Freestyle Equity Fund", ar: "صندوق بيت المال الخليجي المرن للأسهم السعودية" }, type: "equity", shariah: true, currency: "SAR", nav: "[NAV]", change: "[%]", asOf: "[DATE]" },
-  { slug: "gcc-equity", name: { en: "Elite House GCC Equity Fund", ar: "صندوق إيليت هاوس للأسهم الخليجية" }, type: "equity", shariah: true, currency: "SAR", nav: "[NAV]", change: "[%]", asOf: "[DATE]" },
-  { slug: "ipo", name: { en: "BMK IPO Fund", ar: "صندوق بيت المال الخليجي للطروحات الأولية" }, type: "ipo", shariah: true, currency: "SAR", nav: "[NAV]", change: "[%]", asOf: "[DATE]" },
+  { slug: "murabaha", name: { en: "BMK Murabaha Money Market Fund", ar: "صندوق بيت المال الخليجي للمرابحة وأسواق النقد" }, type: "money-market", shariah: true, currency: "SAR", nav: "[NAV]", risk: "[Risk]", change: "[%]", asOf: "[DATE]" },
+  { slug: "saudi-equity", name: { en: "BMK Saudi Equity Fund", ar: "صندوق بيت المال الخليجي للأسهم السعودية" }, type: "equity", shariah: true, currency: "SAR", nav: "[NAV]", risk: "[Risk]", change: "[%]", asOf: "[DATE]" },
+  { slug: "freestyle", name: { en: "BMK Saudi Freestyle Equity Fund", ar: "صندوق بيت المال الخليجي المرن للأسهم السعودية" }, type: "equity", shariah: true, currency: "SAR", nav: "[NAV]", risk: "[Risk]", change: "[%]", asOf: "[DATE]" },
+  { slug: "gcc-equity", name: { en: "Elite House GCC Equity Fund", ar: "صندوق إيليت هاوس للأسهم الخليجية" }, type: "equity", shariah: true, currency: "SAR", nav: "[NAV]", risk: "[Risk]", change: "[%]", asOf: "[DATE]" },
+  { slug: "ipo", name: { en: "BMK IPO Fund", ar: "صندوق بيت المال الخليجي للطروحات الأولية" }, type: "ipo", shariah: true, currency: "SAR", nav: "[NAV]", risk: "[Risk]", change: "[%]", asOf: "[DATE]" },
 ];
 
 const en = {

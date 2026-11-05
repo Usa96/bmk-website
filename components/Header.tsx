@@ -1,59 +1,47 @@
 import Link from "next/link";
 import type { Dict, Locale } from "@/lib/content";
 import LangSwitch from "./LangSwitch";
-import Logo from "./Logo";
+import { Globe, Mark, Menu, Search } from "./Icons";
 
 export default function Header({ lang, t }: { lang: Locale; t: Dict }) {
   const p = (h: string) => `/${lang}${h}`;
+  const nav = t.nav.filter((n) => n.href !== "/contact");
   return (
-    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur">
-      {/* Utility bar */}
-      <div className="hidden bg-onyx text-[13px] text-sand md:block">
-        <div className="mx-auto flex h-9 max-w-7xl items-center justify-end gap-6 px-6">
-          <Link href={p("/investor-awareness")} className="hover:text-ivory">{t.util.awareness}</Link>
-          <Link href={p("/investor-awareness#complaints")} className="hover:text-ivory">{t.util.complaints}</Link>
-          <Link href={p("/disclosures")} className="hover:text-ivory">{t.util.disclosures}</Link>
-          <span className="h-4 w-px bg-charcoal" aria-hidden />
-          <LangSwitch to={t.other.code} label={t.other.label} className="font-semibold text-ivory hover:underline" />
-          <a href="#" className="text-ivory hover:underline">{t.util.login}</a>
-        </div>
-      </div>
-
-      {/* Main bar */}
-      <div className="border-b border-line">
-        <div className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-6 px-4 md:px-6">
-          <Logo lang={lang} t={t} />
+    <header className="absolute inset-x-0 top-0 z-40">
+      <div className="mx-auto flex h-20 max-w-[1280px] items-center justify-between gap-6 px-4 md:px-8">
+        <div className="flex items-center gap-10">
+          <Link href={p("")} aria-label={t.brand.name} className="flex items-center gap-3">
+            <Mark />
+            <span className="hidden font-display text-sm font-semibold leading-tight xl:block">{t.brand.name}</span>
+          </Link>
           <nav aria-label="Main" className="hidden lg:block">
-            <ul className="flex items-center gap-1">
-              {t.nav.map((n) => (
-                <li key={n.href}>
-                  <Link href={p(n.href)} className="rounded-md px-3 py-2 text-[15px] font-semibold text-charcoal hover:bg-ivory hover:text-onyx">
-                    {n.label}
-                  </Link>
-                </li>
+            <ul className="flex items-center gap-8 text-[15px]">
+              {nav.map((n) => (
+                <li key={n.href}><Link href={p(n.href)} className="text-ivory/85 hover:text-ivory">{n.label}</Link></li>
               ))}
             </ul>
           </nav>
-          <div className="flex items-center gap-2">
-            <Link href={p("/open-account")} className="rounded-full bg-onyx px-5 py-2.5 text-sm font-semibold text-ivory hover:bg-charcoal">
-              {t.openAccount}
-            </Link>
-            {/* Mobile menu */}
-            <details className="relative lg:hidden">
-              <summary className="grid h-11 w-11 cursor-pointer list-none place-items-center rounded-md border border-line [&::-webkit-details-marker]:hidden" aria-label={t.menu}>
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden><path d="M4 7h16M4 12h16M4 17h16" /></svg>
-              </summary>
-              <div className="absolute end-0 top-13 w-64 rounded-xl border border-line bg-white p-2 shadow-lg">
-                {t.nav.map((n) => (
-                  <Link key={n.href} href={p(n.href)} className="block rounded-md px-3 py-2.5 font-semibold text-charcoal hover:bg-ivory">{n.label}</Link>
-                ))}
-                <hr className="my-2 border-line" />
-                <Link href={p("/investor-awareness")} className="block rounded-md px-3 py-2 text-sm text-stone hover:bg-ivory">{t.util.awareness}</Link>
-                <Link href={p("/investor-awareness#complaints")} className="block rounded-md px-3 py-2 text-sm text-stone hover:bg-ivory">{t.util.complaints}</Link>
-                <LangSwitch to={t.other.code} label={t.other.label} className="block rounded-md px-3 py-2 text-sm font-semibold hover:bg-ivory" />
-              </div>
-            </details>
-          </div>
+        </div>
+
+        <div className="flex items-center gap-1 md:gap-3">
+          <Link href={p("/search")} aria-label="Search" className="grid h-11 w-11 place-items-center rounded-full hover:bg-raise/70"><Search /></Link>
+          <LangSwitch to={t.other.code} label={t.other.code.toUpperCase()}
+            className="hidden h-11 items-center gap-2 rounded-full px-3 text-sm font-bold hover:bg-raise/70 sm:flex" icon={<Globe />} />
+          <a href="#" className="btn hidden sm:inline-flex">{t.util.login}</a>
+          <Link href={p("/open-account")} className="btn btn-accent hidden md:inline-flex">{t.openAccount}</Link>
+
+          <details className="relative lg:hidden">
+            <summary aria-label={t.menu} className="grid h-11 w-11 cursor-pointer list-none place-items-center rounded-full hover:bg-raise/70 [&::-webkit-details-marker]:hidden"><Menu /></summary>
+            <div className="absolute end-0 top-13 w-64 rounded-2xl border border-edge bg-panel p-2 shadow-2xl">
+              {t.nav.map((n) => (
+                <Link key={n.href} href={p(n.href)} className="block rounded-xl px-3 py-2.5 hover:bg-raise">{n.label}</Link>
+              ))}
+              <hr className="my-2 border-edge" />
+              <Link href={p("/open-account")} className="block rounded-xl px-3 py-2.5 font-bold text-sand hover:bg-raise">{t.openAccount}</Link>
+              <a href="#" className="block rounded-xl px-3 py-2.5 hover:bg-raise">{t.util.login}</a>
+              <LangSwitch to={t.other.code} label={t.other.label} className="block rounded-xl px-3 py-2.5 hover:bg-raise" />
+            </div>
+          </details>
         </div>
       </div>
     </header>
